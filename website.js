@@ -1,15 +1,17 @@
+
+
 function calculateChristmasCountdown(){
 
-  var now = new Date('2019-12-04');
-  var currentMonth = (now.getMonth(12)+ 1);
-  var currentDay = now.getDate(4);
-  var nextChristmasYear = now.getFullYear(2019);
-  if(currentMonth == 12&& currentDay > 25){
+  var now = new Date();
+  var currentMonth = (now.getMonth()+ 1);
+  var currentDay = now.getDate();
+  var nextChristmasYear = now.getFullYear();
+  if(currentMonth == 12 && currentDay > 25){
     nextChristmasYear = nextChristmasYear + 1;
   }
   var nextChristmasDate = nextChristmasYear + '-12-25T00:00:00.000z';
   var christmasDay = new Date(nextChristmasDate);
-}
+
   var diffSeconds = Math.floor((christmasDay.getTime() - now.getTime()) / 1000);
   var days = 0;
   var hours = 0;
@@ -27,13 +29,13 @@ function calculateChristmasCountdown(){
 
   }
 
-document.getElementById('days').innerHTML = days + ' Days';
-document.getElementById('hours').innerHTML = hours + ' Hours';
-document.getElementById('minutes').innerHTML = minutes + ' Minutes';
-document.getElementById('seconds').innerHTML = seconds + ' Seconds';
-
-  setTimeout(calculateChristmasCountdown, 1000);
+  document.getElementById('days').innerHTML = days + ' Days';
+  document.getElementById('hours').innerHTML = hours + ' Hours';
+  document.getElementById('minutes').innerHTML = minutes + ' Minutes';
+  document.getElementById('seconds').innerHTML = seconds + ' Seconds';
 
 }
+
+setInterval(calculateChristmasCountdown, 1000);
 
 calculateChristmasCountdown();
